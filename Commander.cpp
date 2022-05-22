@@ -13,24 +13,29 @@ Commander::Commander(){
 	
 }
 
+
+
 void Commander::set_task(Task* t){
 	
 	this->task = t;
 	
 }
 
+void Commander::start_task(){
+	
+	if(task.get_amount()<=this.get_amount()){
+		this.rnd_move(task->coords);
+	}else{printf("Can't start task - not enough workers");}
+	
+}
 void Commander::add_worker(int n){ //add certain amount of workers if possible
-	
-	if(n<=hive->unassigned_workers.size()){
+	if(this->hive.get_amount_w()>=n){
+		Worker* w;
 		for(int i = 0; i<n;i++){
-			this->workers.push_back(this->hive->unassigned_workers[0]);
-			this->workers[workers.size()-1].set_cmd(this);
-			this->hive->unassigned_workers.pop_front();
+			w = this->hive.add_worker();
+			this->workers.push_back(w);
 		}
-	}else{
-		printf("add_worker fault - not enough workers");
-	}
-	
+	}else{ printf("add_worker fault  - not enough workers");}
 }
 
 ~Commander(){ // create worker on commander destruction
@@ -39,14 +44,18 @@ void Commander::add_worker(int n){ //add certain amount of workers if possible
 	
 }
 
-void Commander::move_swarm(Area*){
-
+void Commander::rnd_move(Area a){ // randomly distribute workers in given Area
 	
+	for(int i=0; i<this->workers.size();i++){
+		workers[i].set_X(min(a.x1,a.x2) + rand()*rand()%(abs(a.x1-a.x2)));
+		workers[i].set_Y(min(a.x1,a.x2) + rand()*rand()%(abs(a.x1-a.x2)));
+		workers[i].set_rot(rand()%360);
+	}
 	
-}	
+}
 
-void Commander::rnd_move(Area){ // randomly distribute workers in given Area
-
+int Commander::get_amount(){ // get number of working units
 	
+	return workers.size()+1; // +1 is because commander works too
 	
 }

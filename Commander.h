@@ -12,14 +12,15 @@ class Commander: public Worker{
 public:
 	void set_task(Task*);
 	
-	void add_worker(int); //add certain amount of workers if possible
+	void start_task();
 	
-	void move_swarm(Area*);
+	void add_worker(int); //add certain amount of workers if possible
 	
 	void rnd_move(Area); // randomly distribute workers in given Area
 	
 	Commander();
 	~Commander(); // create worker on commander destruction
 	
+	void get_amount(); // get number of working units
 	
 };

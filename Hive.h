@@ -24,12 +24,14 @@ public:
 	
 	void assing_cmd(Task*, Commander*);
 	
+	int get_amount_w();
+	
 	void set_scenario(Scenario*);
 	void create_workers(int);
 	void set_queue(Scenario*);
 	void send_queue(Scenario*);
 	
-	void add_worker(Worker*);
+	void add_worker();
 	
 	Commander* promote();
 	

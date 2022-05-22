@@ -12,12 +12,6 @@ Worker::Worker(){
 	
 }
 
-Worker::~Worker(){
-	
-	--num_workers;
-	
-}
-
 float Worker::get_X(){
 	
 	return this->X;

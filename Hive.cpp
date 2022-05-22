@@ -44,9 +44,26 @@ void Hive::create_workers(int n){
 	
 }
 
+Worker* Hive::add_worker(){
+
+	if(!unassigned_workers.empty()){
+		Worker* w;		
+		w=unassigned_workers[0];
+		this->unassigned_workers.pop_front();
+		return w;
+	}else{printf("add_worker fault - not enough workers"); return nullptr;}
+	
+}
+
 void Hive::set_queue(Scenario*){
 	
 	// thread use ~_^
+	
+}
+
+int get_amount_w(){
+	
+	return this->unassigned_workers.size();
 	
 }
 
