@@ -22,6 +22,7 @@ public:
 	float get_X();
 	float get_Y();
 	float get_rot();
+	Commander* get_cmd();
 	
 	int get_num_workers();
 

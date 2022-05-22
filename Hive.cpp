@@ -1,22 +1,28 @@
 #include "Hive.h"
 
+int Hive::workers_num = 0;
+
 Scenario* Hive::get_c_scenario(){
 	
 	return this->current_scenario;
 	
 } //get current scenario
 
-void Hive::upd_hier(){
+void Hive::upd_hier(Commander* cmd, Commander* new_cmd){
 	
-// Don't know what to do here [-]_[-]
+	cmd->get_cmd()->add_workers(cmd->get_workers());
+	cmd->clear_workers();
+	cmd->set_cmd(new_cmd);
 	
 } // update hierarchy
 
-void Hive::predict_abort(Task*){
-	
-	//mlem [§]╚[§]
-	
-} // create list of abortion
+void Hive::predict_abort(Task* t){
+
+	if (t->get_amount() > workers_num) {
+		t->to_abort = true;
+	}
+
+} // abort task or not
 
 void Hive::assing_cmd(Task* t, Commander* c){
 	
@@ -42,6 +48,8 @@ void Hive::create_workers(int n){
 		this->unassigned_workers[i]->set_hive(this);
 	}
 	
+	workers_num += n;
+
 }
 
 Worker* Hive::add_worker(){
@@ -55,10 +63,14 @@ Worker* Hive::add_worker(){
 	
 }
 
-void Hive::set_queue(Scenario*){
-	
-	// thread use ~_^
-	
+void Hive::set_queue(Scenario*){ // create queue and send it to current scenario
+	vector <Task*> t_q1 = current_scenario->get_tasks();
+	vector <Task*> t_q2 = {};
+	for (int i = 0; i < t_q1.size(); i++) {
+		this->predict_abort(t_q1[i]);
+		if (!t_q1[i]->to_abort) { t_q2.push_back(t_q1[i]); }
+	}
+	current_scenario->set_tasks(t_q2);
 }
 
 int Hive::get_amount_w(){

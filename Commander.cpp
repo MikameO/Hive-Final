@@ -13,6 +13,13 @@ void Commander::set_task(Task* t){
 	
 }
 
+void Commander::add_workers(vector<Worker*> w)
+{
+	for (int i = 0; i < w.size(); i++) {
+		workers.push_back(w[i]);
+	}
+}
+
 void Commander::start_task(){
 	
 	if(this->task->get_amount()<=this->get_amount()){
@@ -50,4 +57,14 @@ int Commander::get_amount(){ // get number of working units
 	
 	return workers.size()+1; // +1 is because commander works too
 	
+}
+
+vector <Worker*> Commander::get_workers()
+{
+	return workers;
+}
+
+void Commander::clear_workers()
+{
+	workers.clear();
 }

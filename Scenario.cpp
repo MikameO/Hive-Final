@@ -7,6 +7,7 @@ int Scenario::fin_num = 0; //finished
 
 Scenario::Scenario(){
 	this->name = rand();
+	task_queue = {};
 }
 
 void Scenario::add_task(Task* t){
@@ -32,4 +33,17 @@ void Scenario::create_tasks(int n){
 		this->task_queue[i]->set_amount(rand());
 	}
 	Scenario::task_num += n;
+}
+
+vector <Task*> Scenario::get_tasks()
+{
+	return task_queue;
+}
+
+void Scenario::set_tasks(vector <Task*> task_q)
+{
+	task_queue.clear();
+	for (int i = 0; i < task_q.size(); i++) {
+		task_queue.push_back(task_q[i]);
+	}
 }

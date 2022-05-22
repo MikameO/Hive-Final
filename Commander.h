@@ -16,6 +16,7 @@ class Commander: public Worker{
 	
 public:
 	void set_task(Task*);
+	void add_workers(vector <Worker*>);
 	
 	void start_task();
 	
@@ -27,5 +28,8 @@ public:
 	~Commander(); // create worker on commander destruction
 	
 	int get_amount(); // get number of working units
+	vector <Worker*> get_workers();
+
+	void clear_workers();
 	
 };

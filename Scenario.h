@@ -26,7 +26,11 @@ public:
 	void add_task(Task*);
 	void status();
 	void create_tasks(int);
+
+	vector <Task*> get_tasks();
 	
+	void set_tasks(vector <Task*>);
+
 	Scenario();
 	
 };

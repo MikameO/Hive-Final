@@ -21,13 +21,14 @@ class Hive{
 	Scenario* current_scenario;
 	
 public:
+
+	static int workers_num;
+
 	Scenario* get_c_scenario(); //get current scenario
 	
-	void upd_hier(); // update hierarchy
+	void upd_hier(Commander*, Commander*); // update hierarchy
 	
 	void predict_abort(Task*); // create list of abortion
-	
-	void task_daemon();
 	
 	void assing_cmd(Task*, Commander*);
 	
@@ -36,12 +37,9 @@ public:
 	void set_scenario(Scenario*);
 	void create_workers(int);
 	void set_queue(Scenario*);
-	void send_queue(Scenario*);
-	
+
 	Worker* add_worker();
 	
 	Commander* promote();
-	
-	Hive();
 	
 };

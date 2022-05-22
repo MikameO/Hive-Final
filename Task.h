@@ -18,6 +18,8 @@ class Task{
 
 public:
 
+	bool to_abort;
+
 	void set_name();
 	void set_exec_time(int);
 	void set_coords(Area);

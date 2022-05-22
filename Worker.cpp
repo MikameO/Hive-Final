@@ -34,6 +34,11 @@ float Worker::get_rot(){
 	
 }
 
+Commander* Worker::get_cmd()
+{
+	return cmd;
+}
+
 int Worker::get_num_workers(){
 	
 	return this->get_hive()->get_amount_w();
