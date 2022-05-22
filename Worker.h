@@ -1,9 +1,13 @@
 #pragma once
 
-#include "struct.h"
+#include <iostream>
 #include <vector>
+#include "structs.h"
+
+using namespace std;
 
 class Commander;
+class Hive;
 
 class Worker{
 
@@ -21,6 +25,7 @@ public:
 	
 	int get_num_workers();
 
+	void set_name();
 	void set_X(float);
 	void set_Y(float);
 	void set_rot(float);
@@ -28,6 +33,8 @@ public:
 	void set_hive(Hive*);
 
 	void w_log();
+
+	Hive* get_hive();
 
 	Worker();
 	~Worker();

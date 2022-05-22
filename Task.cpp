@@ -1,6 +1,8 @@
 #include "Task.h"
+#include <iostream>
+using namespace std;
 
-static int Task::num_aborted = 0;
+int Task::num_aborted = 0;
 
 Task::Task(){
 	
@@ -18,6 +20,26 @@ Task::~Task(){
 	
 	++num_aborted;
 	
+}
+
+void Task::set_name()
+{
+	name = rand() % 256;
+}
+
+void Task::set_exec_time(int t)
+{
+	exec_time = t;
+}
+
+void Task::set_coords(Area x)
+{
+	coords = x;
+}
+
+void Task::set_amount(int a)
+{
+	amount = a;
 }
 
 int Task::get_exec_time(){

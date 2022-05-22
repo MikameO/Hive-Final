@@ -1,6 +1,13 @@
 #pragma once
+#include <iostream>
+#include <vector>
 #include "Worker.h"
+#include "Commander.h"
+#include "Scenario.h"
+#include "Task.h"
 #include "structs.h"
+
+using namespace std;
 
 class Commander;
 class Worker;
@@ -18,7 +25,7 @@ public:
 	
 	void upd_hier(); // update hierarchy
 	
-	void predict_abort(); // create list of abortion
+	void predict_abort(Task*); // create list of abortion
 	
 	void task_daemon();
 	
@@ -31,7 +38,7 @@ public:
 	void set_queue(Scenario*);
 	void send_queue(Scenario*);
 	
-	void add_worker();
+	Worker* add_worker();
 	
 	Commander* promote();
 	

@@ -1,16 +1,8 @@
 #include "Commander.h"
-#include "Hive.h"
+#include "Task.h"
 
-Commander::Commander(){
-	
-	this->name = rand();
-	this->X = 0;
-	this->Y = 0;
-	this->rot = 0;
-	this->cmd = nullptr;
-	this->hive = nullptr;
+Commander::Commander():Worker(){
 	this->workers = {};
-	
 }
 
 
@@ -23,33 +15,33 @@ void Commander::set_task(Task* t){
 
 void Commander::start_task(){
 	
-	if(task.get_amount()<=this.get_amount()){
-		this.rnd_move(task->coords);
+	if(this->task->get_amount()<=this->get_amount()){
+		this->rnd_move(task->get_Area());
 	}else{printf("Can't start task - not enough workers");}
 	
 }
 void Commander::add_worker(int n){ //add certain amount of workers if possible
-	if(this->hive.get_amount_w()>=n){
+	if(this->get_hive()->get_amount_w() >= n) {
 		Worker* w;
 		for(int i = 0; i<n;i++){
-			w = this->hive.add_worker();
+			w = this->get_hive()->add_worker();
 			this->workers.push_back(w);
 		}
 	}else{ printf("add_worker fault  - not enough workers");}
 }
 
-~Commander(){ // create worker on commander destruction
+Commander::~Commander(){ // create worker on commander destruction
 	
-	this->hive.create_workers(1);
+	this->get_hive()->create_workers(1);
 	
 }
 
 void Commander::rnd_move(Area a){ // randomly distribute workers in given Area
 	
 	for(int i=0; i<this->workers.size();i++){
-		workers[i].set_X(min(a.x1,a.x2) + rand()*rand()%(abs(a.x1-a.x2)));
-		workers[i].set_Y(min(a.x1,a.x2) + rand()*rand()%(abs(a.x1-a.x2)));
-		workers[i].set_rot(rand()%360);
+		workers[i]->set_X(min(a.x1,a.x2) + rand()*rand()%(abs(int(a.x1)-int(a.x2))));
+		workers[i]->set_Y(min(a.x1,a.x2) + rand()*rand()%(abs(int(a.x1)-int(a.x2))));
+		workers[i]->set_rot(rand()%360);
 	}
 	
 }

@@ -1,4 +1,6 @@
-	struct Area{
+#pragma once
+
+struct Area{
 	
 	float x1;
 	float y1;

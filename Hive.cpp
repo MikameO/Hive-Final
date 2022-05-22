@@ -20,7 +20,7 @@ void Hive::predict_abort(Task*){
 
 void Hive::assing_cmd(Task* t, Commander* c){
 	
-	t->task=t;
+	c->set_task(t);
 	
 }
 
@@ -34,12 +34,12 @@ void Hive::create_workers(int n){
 	
 	for(int i=0; i<n; i++){
 		this->unassigned_workers.push_back(new Worker);
-		this->unassigned_workers[i].set_name = rand();
-		this->unassigned_workers[i]->set_X = 0;
-		this->unassigned_workers[i]->set_Y = 0;
-		this->unassigned_workers[i]->set_rot = 0;
-		this->unassigned_workers[i]->set_cmd = nullptr;
-		this->unassigned_workers[i]->set_hive = this;
+		this->unassigned_workers[i]->set_name();
+		this->unassigned_workers[i]->set_X(0);
+		this->unassigned_workers[i]->set_Y(0);
+		this->unassigned_workers[i]->set_rot(0);
+		this->unassigned_workers[i]->set_cmd(nullptr);
+		this->unassigned_workers[i]->set_hive(this);
 	}
 	
 }
@@ -48,8 +48,8 @@ Worker* Hive::add_worker(){
 
 	if(!unassigned_workers.empty()){
 		Worker* w;		
-		w=unassigned_workers[0];
-		this->unassigned_workers.pop_front();
+		w=unassigned_workers[unassigned_workers.size()-1];
+		this->unassigned_workers.pop_back();
 		return w;
 	}else{printf("add_worker fault - not enough workers"); return nullptr;}
 	
@@ -61,7 +61,7 @@ void Hive::set_queue(Scenario*){
 	
 }
 
-int get_amount_w(){
+int Hive::get_amount_w(){
 	
 	return this->unassigned_workers.size();
 	
@@ -69,8 +69,10 @@ int get_amount_w(){
 
 Commander* Hive::promote(){
 	Commander* c;
+	Worker* w;
 	c = new Commander;
+	w = unassigned_workers[unassigned_workers.size() - 1];
 	this->unassigned_workers.pop_back();
-	w.~Worker();
+	w->~Worker();
 	return c;
 }

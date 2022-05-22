@@ -1,6 +1,5 @@
 #include "Worker.h"
-
-static int Worker::num_workers = 0;
+#include "Hive.h"
 
 Worker::Worker(){
 	
@@ -9,7 +8,12 @@ Worker::Worker(){
 	this->Y = 0;
 	this->rot = 0;
 	this->cmd = nullptr;
+	this->hive = nullptr;
 	
+}
+
+Worker::~Worker()
+{
 }
 
 float Worker::get_X(){
@@ -32,8 +36,13 @@ float Worker::get_rot(){
 
 int Worker::get_num_workers(){
 	
-	return num_workers;
+	return this->get_hive()->get_amount_w();
 	
+}
+
+void Worker::set_name()
+{
+	name = rand()%256;
 }
 
 void Worker::set_X(float x){
@@ -60,7 +69,7 @@ void Worker::set_cmd(Commander* cmd_new){
 	
 }
 
-void Worker::set_cmd(Commander* hive_new){
+void Worker::set_hive(Hive* hive_new){
 	
 	this->hive=hive_new;
 	
@@ -75,4 +84,9 @@ void Worker::w_log(){
 	l_p->rot=this->rot;
 	this->log_p.push_back(l_p);
 	
+}
+
+Hive* Worker::get_hive()
+{
+	return hive;
 }

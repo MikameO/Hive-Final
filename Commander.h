@@ -1,8 +1,13 @@
 #pragma once
+#include <iostream>
+#include <vector>
+#include "Worker.h"
 #include "structs.h"
 
+using namespace std;
+
 class Worker;
-class Commander;
+class Task;
 
 class Commander: public Worker{	
 	
@@ -21,6 +26,6 @@ public:
 	Commander();
 	~Commander(); // create worker on commander destruction
 	
-	void get_amount(); // get number of working units
+	int get_amount(); // get number of working units
 	
 };
