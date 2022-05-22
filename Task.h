@@ -18,6 +18,7 @@ class Task{
 
 public:
 
+	bool finished;
 	bool to_abort;
 
 	void set_name();

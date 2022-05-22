@@ -69,8 +69,16 @@ void Hive::set_queue(Scenario*){ // create queue and send it to current scenario
 	for (int i = 0; i < t_q1.size(); i++) {
 		this->predict_abort(t_q1[i]);
 		if (!t_q1[i]->to_abort) { t_q2.push_back(t_q1[i]); }
+		else { Scenario::abort_num++; }
 	}
 	current_scenario->set_tasks(t_q2);
+}
+
+void Hive::add_workers(vector <Worker*> w)
+{
+	for (int i = 0; i < w.size(); i++) {
+		unassigned_workers.push_back(w[i]);
+	}
 }
 
 int Hive::get_amount_w(){
@@ -87,4 +95,8 @@ Commander* Hive::promote(){
 	this->unassigned_workers.pop_back();
 	w->~Worker();
 	return c;
+}
+
+void Hive::demote(Commander* c) {
+	c->~Commander();
 }

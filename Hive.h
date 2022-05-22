@@ -38,8 +38,12 @@ public:
 	void create_workers(int);
 	void set_queue(Scenario*);
 
+	void add_workers(vector <Worker*>); // to the unassigned_workers vectur
+
 	Worker* add_worker();
 	
 	Commander* promote();
+
+	void demote(Commander*);
 	
 };

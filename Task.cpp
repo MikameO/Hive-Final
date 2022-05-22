@@ -14,7 +14,7 @@ Task::Task(){
 	this->coords.y2 = rand();
 	this->amount = rand();
 	to_abort = false;
-
+	finished = false;
 }
 
 Task::~Task(){

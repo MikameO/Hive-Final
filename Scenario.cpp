@@ -2,7 +2,6 @@
 
 int Scenario::task_num = 0; // overall amount of tasks
 int Scenario::abort_num = 0; //aborted
-int Scenario::del_num = 0; //delayed 
 int Scenario::fin_num = 0; //finished
 
 Scenario::Scenario(){

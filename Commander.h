@@ -19,6 +19,7 @@ public:
 	void add_workers(vector <Worker*>);
 	
 	void start_task();
+	void finish_task();
 	
 	void add_worker(int); //add certain amount of workers if possible
 	
