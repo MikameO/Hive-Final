@@ -33,6 +33,8 @@ public:
 	void set_cmd(Commander*);
 	void set_hive(Hive*);
 
+	vector <log_pos*> get_log();
+
 	void w_log();
 
 	Hive* get_hive();

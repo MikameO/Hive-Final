@@ -80,6 +80,11 @@ void Worker::set_hive(Hive* hive_new){
 	
 }
 
+vector<log_pos*> Worker::get_log()
+{
+	return log_p;
+}
+
 void Worker::w_log(){
 	
 	log_pos* l_p;

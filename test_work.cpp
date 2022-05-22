@@ -36,6 +36,28 @@ void test_work(){
 
 	cout << cmd1->get_workers()[0]->get_X() << "\n";
 
+	cmd1->get_workers()[0]->w_log();
+
+	cout << cmd1-> get_workers()[0]->get_log()[cmd1->get_workers()[0]->get_log().size() - 1]->Y - cmd1->get_workers()[0]->get_Y() << " is it null? \n";
+
+	cmd1->rnd_move(sc.get_tasks()[0]->get_Area());
+
+	cmd1->get_workers()[0]->w_log();
+
+	cout << cmd1->get_workers()[0]->get_log()[cmd1->get_workers()[0]->get_log().size() - 1]->Y - cmd1->get_workers()[0]->get_Y() << " is it null? \n";
+
+	cmd1->rnd_move(sc.get_tasks()[0]->get_Area());
+
+	cmd1->get_workers()[0]->w_log();
+
+	cout << cmd1->get_workers()[0]->get_log()[cmd1->get_workers()[0]->get_log().size() - 1]->Y - cmd1->get_workers()[0]->get_Y() << " is it null? \n";
+
+	cmd1->rnd_move(sc.get_tasks()[0]->get_Area());
+
+	cmd1->get_workers()[0]->w_log();
+
+	printf("It finally works!!!  NICEEEEE");
+
 	delete cmd1;
 	delete cmd2; // works down to here
 
