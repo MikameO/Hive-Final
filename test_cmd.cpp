@@ -34,9 +34,9 @@ void test_cmd(){
 
 	cmd1->rnd_move(sc.get_tasks()[0]->get_Area());
 
-	cout << cmd1->get_workers()[0]->get_X() << "\n"; // works down to here
+	cout << cmd1->get_workers()[0]->get_X() << "\n";
 
 	delete cmd1;
-	delete cmd2;
+	delete cmd2; // works down to here
 
 }

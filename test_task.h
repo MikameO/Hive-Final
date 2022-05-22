@@ -2,4 +2,4 @@
 
 using namespace std;
 
-void test_();
+void test_task();

@@ -16,21 +16,27 @@
 
 int main(){
 
+	cout << "\n\n#######################\n\n";
+
 	test_cmd();
 
-/*
-	Hive first_hive; // works
+	cout << "\n\n#######################\n\n";
 
-	first_hive.create_workers(100000); // works
+	test_hive();
 
-	cout << first_hive.get_amount_w();  // works
+	cout << "\n\n#######################\n\n";
 
-	cout << first_hive.get_c_scenario();  // works
+	test_scen();
 
+	cout << "\n\n#######################\n\n";
 
+	test_work();
 
-	Scenario first_scen; // works
-	*/
+	cout << "\n\n#######################\n\n";
+
+	test_task();
+
+	cout << "\n\n#######################\n\n";
 	int i;
 
 	cin >> i;
