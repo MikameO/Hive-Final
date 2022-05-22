@@ -1,6 +1,7 @@
 #include "Commander.h"
 #include "Task.h"
 #include "Hive.h"
+#include "Scenario.h"
 
 Commander::Commander():Worker(){
 	this->workers = {};
@@ -32,6 +33,7 @@ void Commander::finish_task()
 {
 	task->finished = true;
 	this->get_hive()->demote(this);
+	Scenario::fin_num++;
 }
 
 void Commander::add_worker(int n){ //add certain amount of workers if possible

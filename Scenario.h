@@ -21,7 +21,6 @@ class Scenario{
 public:
 	static int task_num; // overall amount of tasks
 	static int abort_num; //aborted
-	static int del_num; //delayed 
 	static int fin_num; //finished
 	void add_task(Task*);
 	void status();
