@@ -23,9 +23,10 @@ void Commander::start_task(){
 		if (this->task->get_amount() <= this->get_amount()) {
 			this->rnd_move(task->get_Area());
 		}
-		else { printf("Can't start task - not enough workers"); }
+		else { printf("Can't start task - not enough workers\n"); }
 	}
-	else { printf("Task is finished"); }
+	else { printf("Task is finished\n"); }
+	printf("Task is Finished\n");
 	this->finish_task();
 }
 
@@ -46,10 +47,7 @@ void Commander::add_worker(int n){ //add certain amount of workers if possible
 	}else{ printf("add_worker fault  - not enough workers");}
 }
 
-Commander::~Commander(){ // create worker on commander destruction
-	this->get_hive()->add_workers(workers);
-	Hive::workers_num--;
-	this->get_hive()->create_workers(1);
+Commander::~Commander(){
 }
 
 void Commander::rnd_move(Area a){ // randomly distribute workers in given Area
@@ -58,6 +56,11 @@ void Commander::rnd_move(Area a){ // randomly distribute workers in given Area
 		workers[i]->set_Y(min(a.x1,a.x2) + rand()*rand()%(abs(int(a.x1)-int(a.x2))));
 		workers[i]->set_rot(rand()%360);
 	}
+}
+
+Task* Commander::get_task()
+{
+	return task;
 }
 
 int Commander::get_amount(){ // get number of working units

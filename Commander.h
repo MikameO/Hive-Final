@@ -15,8 +15,8 @@ class Commander: public Worker{
 	vector <Worker*> workers;
 	
 public:
-	void set_task(Task*);
-	void add_workers(vector <Worker*>);
+	void set_task(Task*); // Set current task
+	void add_workers(vector <Worker*>); // add some workers from vector
 	
 	void start_task();
 	void finish_task();
@@ -28,9 +28,10 @@ public:
 	Commander();
 	~Commander(); // create worker on commander destruction
 	
+	Task* get_task(); // get current task
 	int get_amount(); // get number of working units
-	vector <Worker*> get_workers();
+	vector <Worker*> get_workers(); // get vector workers
 
-	void clear_workers();
+	void clear_workers(); // clear vector workers
 	
 };

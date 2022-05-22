@@ -3,7 +3,7 @@
 
 Worker::Worker(){
 	
-	this->name = rand();
+	this->name = rand()%256;
 	this->X = 0;
 	this->Y = 0;
 	this->rot = 0;

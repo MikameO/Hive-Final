@@ -40,6 +40,8 @@ public:
 
 	void add_workers(vector <Worker*>); // to the unassigned_workers vectur
 
+	vector <Worker*> get_unassigned(); // get vector unassigned workers
+
 	Worker* add_worker();
 	
 	Commander* promote();

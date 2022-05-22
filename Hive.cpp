@@ -81,6 +81,11 @@ void Hive::add_workers(vector <Worker*> w)
 	}
 }
 
+vector<Worker*> Hive::get_unassigned()
+{
+	return unassigned_workers;
+}
+
 int Hive::get_amount_w(){
 	
 	return this->unassigned_workers.size();
@@ -91,6 +96,8 @@ Commander* Hive::promote(){
 	Commander* c;
 	Worker* w;
 	c = new Commander;
+	c->set_hive(this);
+	cmds.push_back(c);
 	w = unassigned_workers[unassigned_workers.size() - 1];
 	this->unassigned_workers.pop_back();
 	w->~Worker();
@@ -98,5 +105,16 @@ Commander* Hive::promote(){
 }
 
 void Hive::demote(Commander* c) {
-	c->~Commander();
+	for (int i = 0; i < cmds.size(); i++) {
+		if (cmds[i] == c) {
+			for (int j = i; j < cmds.size()-1; j++) {
+				cmds[j] = cmds[j + 1];
+			}
+			cmds.pop_back();
+			break;
+		}
+	}
+	c->get_hive()->add_workers(c->get_workers());
+	workers_num--;
+	c->get_hive()->create_workers(1);
 }
