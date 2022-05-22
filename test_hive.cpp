@@ -1,4 +1,4 @@
-#include "Hive.h"
+#include "test_hive.h"
 
 using namespace std;
 

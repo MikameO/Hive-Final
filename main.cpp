@@ -8,6 +8,12 @@
 #include "Task.h"
 #include "Worker.h"
 
+#include "test_cmd.h"
+#include "test_hive.h"
+#include "test_scen.h"
+#include "test_task.h"
+#include "test_work.h"
+
 int main(){
 	
 	
