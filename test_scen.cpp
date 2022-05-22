@@ -4,36 +4,21 @@ using namespace std;
 
 void test_scen(){
 
+	cout << Hive::workers_num;
+
 	Hive hv;
 
-	hv.create_workers(100000);
+	hv.create_workers(10);
 
-	Commander* cmd1 = hv.promote();
-	Commander* cmd2 = hv.promote();
-
-	cout << &hv << " " << cmd1->get_hive() << "\n";
-	cout << &hv << " " << cmd2->get_hive() << "\n";
-
+	cout << "" << "\n";
+	
 	Scenario sc;
-	sc.create_tasks(100);
-
-	cmd1->add_worker(50000);
-	cmd2->add_worker(rand());
-
-	cmd1->set_task(sc.get_tasks()[0]);
-
-	cout << cmd1->get_task()->get_amount() << "\n";
-
-	cmd1->start_task();
-	cmd2->add_worker(hv.get_unassigned().size());
-
-	cout << cmd1->get_workers()[0]->get_X() << "\n";
-
-	cmd1->rnd_move(sc.get_tasks()[0]->get_Area());
-
-	cout << cmd1->get_workers()[0]->get_X() << "\n";
-
-	delete cmd1;
-	delete cmd2; // works down to here
-
+	cout << Hive::workers_num << " \n";
+	sc.create_tasks(10);
+	sc.status();
+	hv.set_scenario(&sc);
+	cout << sc.get_tasks().size() << " task in queue \n";
+	hv.set_queue(&sc);
+	cout << sc.get_tasks().size() << " task in queue after processing\n";
+	sc.status();
 }

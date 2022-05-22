@@ -8,9 +8,6 @@ void test_hive(){
 
 	hv.create_workers(100000);
 
-	Commander* cmd1 = hv.promote();
-	Commander* cmd2 = hv.promote();
-
 	cout << hv.get_amount_w() << " get_amount_w()\n";
 
 	cout << hv.get_c_scenario() << " get_c_scenario()\n";

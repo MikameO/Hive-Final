@@ -18,23 +18,23 @@ int main(){
 
 	cout << "\n\n#######################\n\n";
 
-	test_cmd();
+//	test_cmd();
 
 	cout << "\n\n#######################\n\n";
 
-	test_hive();
+//	test_hive();
 
 	cout << "\n\n#######################\n\n";
 
-	test_scen();
+//	test_scen();
+
+	cout << "\n\n#######################\n\n";
+
+//	test_task();
 
 	cout << "\n\n#######################\n\n";
 
 	test_work();
-
-	cout << "\n\n#######################\n\n";
-
-	test_task();
 
 	cout << "\n\n#######################\n\n";
 	int i;

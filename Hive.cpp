@@ -63,15 +63,15 @@ Worker* Hive::add_worker(){
 	
 }
 
-void Hive::set_queue(Scenario*){ // create queue and send it to current scenario
-	vector <Task*> t_q1 = current_scenario->get_tasks();
+void Hive::set_queue(Scenario* c){ // create queue and send it to current scenario
+	vector <Task*> t_q1 = c->get_tasks();
 	vector <Task*> t_q2 = {};
 	for (int i = 0; i < t_q1.size(); i++) {
 		this->predict_abort(t_q1[i]);
 		if (!t_q1[i]->to_abort) { t_q2.push_back(t_q1[i]); }
 		else { Scenario::abort_num++; }
 	}
-	current_scenario->set_tasks(t_q2);
+	c->set_tasks(t_q2);
 }
 
 void Hive::add_workers(vector <Worker*> w)
