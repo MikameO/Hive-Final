@@ -23,7 +23,7 @@ lib_hive.add_task.restype = None
 lib_hive.print_status.argtypes = [ctypes.c_void_p]
 lib_hive.print_status.restype = None
 lib_hive.create_worker.restype = [ctypes.c_void_p]
-lib_hive.upd_hierarchy.argtypes = [ctypes.c_void_p, ctypes.c_void_p]
+lib_hive.upd_hierarchy.argtypes = [ctypes.c_void_p, ctypes.c_void_p, ctypes.c_void_p]
 lib_hive.upd_hierarchy.restype = None
 
 lib_hive.dispose_workers_hive.argtypes = [ctypes.c_void_p]
