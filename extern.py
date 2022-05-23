@@ -49,7 +49,7 @@ try:
 	except NameError:
 			print(k=2)
 except TypeError:
-	print(1)
+	print(lib_hive.get_worker_X(hive1, 1))
 	
 	
 # Most of the present functions require to address to external class objects so these objects have to be implemented to use most of the functions

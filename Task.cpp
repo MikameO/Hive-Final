@@ -32,6 +32,7 @@ Task::Task(int i, int j, float X1, float X2, float Y1, float Y2, int a)
 
 Task::Task(int i, int j, int a)
 {
+	if(a==0){throw runtime_error("No workers needed - not good");}
 	this->name = i;
 	this->exec_time = j;
 	this->coords.x1 = rand();

@@ -15,6 +15,13 @@
 #include "test_work.h"
 
 int main(){
+	try{
+		Task t(1, 2 ,0);
+	}catch(runtime_error err){
+		
+		cout << "NO WORKERS??";
+		
+	}
 
 	cout << "\n\n#######################\n\n";
 

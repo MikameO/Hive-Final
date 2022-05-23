@@ -20,7 +20,7 @@ extern "C" {
 	}
 	
 	float get_worker_X(Hive* h, int pos){
-		return h->get_unassigned()[pos-1]->get_X();
+			return h->get_unassigned()[pos-1]->get_X();
 	}
 	
     Task* create_rand_task(){
