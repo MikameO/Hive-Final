@@ -15,8 +15,8 @@ void Scenario::add_task(Task* t){
 
 void Scenario::status(){
 	printf("Number of aborted tasks: %d \n", Scenario::abort_num);
-	printf("Number of finished tasks: %d \n", Scenario::abort_num);
-	printf("Number of tasks: %d \n", Scenario::abort_num);
+	printf("Number of finished tasks: %d \n", Scenario::fin_num);
+	printf("Number of tasks: %d \n", Scenario::task_num);
 }
 
 void Scenario::create_tasks(int n){
