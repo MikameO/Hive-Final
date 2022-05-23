@@ -32,6 +32,8 @@ public:
 	Area get_Area();
 	
 	Task();
+	Task(int, int, float, float, float, float, int);
+	Task(int, int, int);
 	~Task();
 	
 };
