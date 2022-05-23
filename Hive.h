@@ -30,7 +30,7 @@ public:
 	
 	void predict_abort(Task*); // create list of abortion
 	
-	void assing_cmd(Task*, Commander*);
+	void assign_cmd(Task*, Commander*);
 	
 	int get_amount_w();
 	

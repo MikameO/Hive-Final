@@ -24,7 +24,7 @@ void Hive::predict_abort(Task* t){
 
 } // abort task or not
 
-void Hive::assing_cmd(Task* t, Commander* c){
+void Hive::assign_cmd(Task* t, Commander* c){
 	
 	c->set_task(t);
 	

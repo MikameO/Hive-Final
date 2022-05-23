@@ -34,7 +34,7 @@ int main(){
 
 	cout << "\n\n#######################\n\n";
 
-	test_work();
+//	test_work();
 
 	cout << "\n\n#######################\n\n";
 	int i;
