@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Импортируем библиотеку
-import PySimpleGUI as sg
+#import PySimpleGUI as sg
 import ctypes
 lib_hive = ctypes.CDLL('./libhive.so')
 
@@ -36,12 +36,26 @@ lib_hive.dispose_hive.restype = None
 
 hive1 = lib_hive.create_hive()
 
-lib_hive.create_workers_hive(hive1, 100)
-print(lib_hive.get_worker_X(hive1, 1))  
+lib_hive.create_workers_hive(hive1, 10)
 
+
+try:
+	try:
+		try:
+			k = 1 / 0
+		except ZeroDivisionError:
+			k = -inf
+			print(k)	
+	except NameError:
+			print(k=2)
+except TypeError:
+	print(1)
+	
+	
 # Most of the present functions require to address to external class objects so these objects have to be implemented to use most of the functions
 # But in case of limited time I show that I know how to use C extern with Python with test of only 3 funtions (watch above)
 
-#lib_hive.dispose_workers_hive(hive1) #double free here: free(): double free detected in tcache 2
+
+
 lib_hive.dispose_hive(hive1)
 print("Well done")
