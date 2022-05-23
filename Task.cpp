@@ -86,3 +86,6 @@ Area Task::get_Area(){
 	return coords;
 
 }
+char Task::get_name(){
+	return name;
+}

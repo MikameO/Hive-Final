@@ -27,6 +27,7 @@ public:
 	void set_amount(int);
 
 	static int num_aborted;
+	char name get_name();
 	int get_exec_time();
 	int get_amount();
 	Area get_Area();
