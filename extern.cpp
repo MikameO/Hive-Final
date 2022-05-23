@@ -11,11 +11,12 @@
 extern "C" {
 	
 	Hive* create_hive(){
-		return new Hive;
+		Hive* h = new Hive;
+		return h;
 	}
 	
 	void create_workers_hive(Hive* h, int i){
-		h->create_workers(i);
+		h->Hive::create_workers(i);
 	}
 	
 	float get_worker_X(Hive* h, int pos){
