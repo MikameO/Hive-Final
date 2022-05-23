@@ -15,10 +15,12 @@ extern "C" {
 	}
 	
 	void create_workers_hive(Hive* h, int i){
-		h->create_worker(i);
+		h->Hive::create_worker(i);
 	}
 	
-	
+	float get_worker_X(Hive* h, int pos){
+		return h->Hive::get_unassigned()[pos]->Worker::get_X();
+	}
 	
     Task* create_rand_task(){
         Task* t = new Task::Task;

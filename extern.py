@@ -9,6 +9,10 @@ lib_hive = ctypes.CDLL('./libhive.so')
 lib_hive.create_hive.restype = ctypes.c_void_p
 lib_hive.create_workers_hive.argtypes = [ctypes.c_void_p, ctypes.c_int]
 lib_hive.create_workers_hive.restype = None
+
+lib_hive.get_worker_X.argtypes = [ctypes.c_void_p, ctypes.c_int]
+lib_hive.get_worker_X.restype = ctypes.c_float
+
 lib_hive.create_rand_task.restype = ctypes.c_void_p
 lib_hive.create_simp_task.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int]
 lib_hive.create_simp_task.restype = ctypes.c_void_p
