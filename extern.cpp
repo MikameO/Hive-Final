@@ -19,7 +19,7 @@ extern "C" {
 	}
 	
 	float get_worker_X(Hive* h, int pos){
-		return h->Hive::get_unassigned()[pos]->Worker::get_X();
+		return h->Hive::get_unassigned()[pos-1]->Worker::get_X();
 	}
 	
     Task* create_rand_task(){
@@ -56,5 +56,18 @@ extern "C" {
     void upd_hierarchy(Commander* a, Commander* b){
         Hive::upd_hier(a, b);
     }
+
+	void dispose_workers_hive(Hive* h){
+		Worker* w;
+		for(int i = 0; i<h->Hive::get_amount_w(); i++){
+			w = h->Hive::get_unassigned()[Hive::get_amount_w()-1];
+			h->Hive::get_unassigned().pop_back();
+			delete w;
+		}
+	}
+
+	void dispose_hive(Hive* h){
+		delete h;
+	}
 
 }
