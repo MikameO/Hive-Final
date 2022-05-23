@@ -9,10 +9,21 @@
 #include "Worker.h"
 
 extern "C" {
+	
+	Hive* create_hive(){
+		return new Hive::Hive;
+	}
+	
+	void create_workers_hive(Hive* h, int i){
+		h->create_worker(i);
+	}
+	
+	
+	
     Task* create_rand_task(){
         Task* t = new Task::Task;
         //printf("Random task:\n\tname: %c\n\ttime: %d\n", t->get_name(), t->get_exec_time());
-        return Task;
+        return t;
     }
     
     Task* create_simp_task(int name, int time, int amount){
@@ -26,27 +37,22 @@ extern "C" {
         //printf("Custom task:\n\tname: %c\n\ttime: %d\n", t->get_name(), t->get_exec_time());
         return t;
     }
-  /*  
-    //предстоит обернуть:
-    
+
 	void add_task(Scenario* sc, Task* t){
-        sc->add_task(t);
-        return;
+        sc->Scenario::add_task(t);
     }
+	
     
 	void print_status(Scenario* sc){
-        sc->status();
-        return;
+        sc->Scenario::status();
     }
-    
+
     Worker* create_worker(){
-        return new Worker;
+        return new Worker::Worker;
     }
-    
+      
     void upd_hierarchy(Commander* a, Commander* b){
-        upd_hier(a, b);
-        return;
+        Hive::upd_hier(a, b);
     }
-    
-    */
+
 }

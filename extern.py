@@ -5,25 +5,22 @@
 import ctypes
 lib_hive = ctypes.CDLL('./libhive.so')
 
-# Указываем типы аргументов и результатов импортированных функций,
-# делать это желательно сразу после загрузки lib_hive.
-# Полную таблицу поддерживаемых типов см. в документации:
-# https://docs.python.org/3/library/ctypes.html#fundamental-data-types
-lib_hive.create_monster.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_char_p, ctypes.c_int]
-lib_hive.create_monster.restype = ctypes.c_void_p
-lib_hive.get_health.argtypes = [ctypes.c_void_p]
-lib_hive.get_health.restype = ctypes.c_int
-lib_hive.get_health.argtypes = [ctypes.c_void_p]
-lib_hive.set_name.argtypes = [ctypes.c_void_p, ctypes.c_char_p]
-lib_hive.set_name.restype = None # для функций, возвращающих void
-lib_hive.get_name.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_size_t]
-lib_hive.get_name.restype = None
-lib_hive.get_pos.argtypes = [ctypes.c_void_p, ctypes.c_void_p, ctypes.c_void_p]
-lib_hive.get_pos.restype = None
-lib_hive.move_to.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_int]
-lib_hive.move_to.restype = None
-lib_hive.dispose_monster.argtypes = [ctypes.c_void_p]
-lib_hive.move_to.restype = None
+
+lib_hive.create_hive.restype = ctypes.c_void_p
+lib_hive.create_workers_hive.argtypes = [ctypes.c_void_p, ctypes.c_int]
+lib_hive.create_workers_hive.restype = None
+lib_hive.create_rand_task.restype = ctypes.c_void_p
+lib_hive.create_simp_task.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int]
+lib_hive.create_simp_task.restype = ctypes.c_void_p
+lib_hive.create_cust_task.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int]
+lib_hive.create_cust_task.restype = ctypes.c_void_p
+lib_hive.add_task.argtypes = [ctypes.c_void_p, ctypes.c_void_p]
+lib_hive.add_task.restype = None
+lib_hive.print_status.argtypes = [ctypes.c_void_p]
+lib_hive.print_status.restype = None
+lib_hive.create_worker.restype = [ctypes.c_void_p]
+lib_hive.upd_hierarchy.argtypes = [ctypes.c_void_p, ctypes.c_void_p]
+lib_hive.upd_hierarchy.restype = None
 
 # Вызываем функции из импортированной библиотеки.
 # Для вызова create_monster нужно как-то передать в библиотеку char*.
