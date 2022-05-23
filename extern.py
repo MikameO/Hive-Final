@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Импортируем библиотеку
+import PySimpleGUI as sg
 import ctypes
 lib_hive = ctypes.CDLL('./libhive.so')
 
@@ -25,9 +26,11 @@ lib_hive.print_status.restype = None
 lib_hive.create_worker.restype = ctypes.c_void_p
 lib_hive.upd_hierarchy.argtypes = [ctypes.c_void_p, ctypes.c_void_p, ctypes.c_void_p]
 lib_hive.upd_hierarchy.restype = None
+lib_hive.get_task_amount.argtypes = [ctypes.c_void_p, ctypes.c_int]
+lib_hive.get_task_amount.restype = ctypes.c_int
+lib_hive.get_task_time.argtypes = [ctypes.c_void_p, ctypes.c_int]
+lib_hive.get_task_time.restype = ctypes.c_int
 
-lib_hive.dispose_workers_hive.argtypes = [ctypes.c_void_p]
-lib_hive.dispose_workers_hive.restype = None
 lib_hive.dispose_hive.argtypes = [ctypes.c_void_p]
 lib_hive.dispose_hive.restype = None
 

@@ -45,7 +45,14 @@ extern "C" {
         sc->add_task(t);
     }
 	
-    
+	int get_task_amount(Scenario* sc, int pos){
+		return sc->get_tasks()[pos]->get_amount();
+	}
+   
+	int get_task_time(Scenario* sc, int pos){
+		return sc->get_tasks()[pos]->get_exec_time();
+	}
+   
 	void print_status(Scenario* sc){
         sc->status();
     }
@@ -57,15 +64,6 @@ extern "C" {
     void upd_hierarchy(Hive* h, Commander* a, Commander* b){
         h->upd_hier(a, b);
     }
-
-	void dispose_workers_hive(Hive* h){
-		Worker* w;
-		for(int i = 0; i<h->get_amount_w(); i++){
-			w = h->get_unassigned()[h->get_amount_w()-1];
-			h->get_unassigned().pop_back();
-			delete w;
-		}
-	}
 
 	void dispose_hive(Hive* h){
 		delete h;
